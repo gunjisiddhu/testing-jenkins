@@ -10,7 +10,7 @@ pipeline {
                     def sonarScannerCmd = "${sonarScannerHome}\\bin\\sonar-scanner.bat"
 
                         withSonarQubeEnv('SonarQube') {
-                            bat "${sonarScannerCmd}"
+                             bat "${sonarScannerCmd} -Dsonar.projectKey=sqp_d30696a6fd179a3763b6e1276d82b7cca9d91736"
                         }
 
                 }
