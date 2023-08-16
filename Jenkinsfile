@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        SONAR_TOKEN = credentials('SONAR_TOKEN') // Use the ID of the SonarQube token credential
+        SONAR_TOKEN = credentials('SONAR_TOKEN')
     }
 
     stages {
