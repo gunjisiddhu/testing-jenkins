@@ -2,15 +2,17 @@ pipeline {
     agent any
 
     stages {
-       stage('SonarQube Analysis') {
-                     steps {
-                         script {
-                                       def scannerHome = tool name: 'SonarQube', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-                                       withSonarQubeEnv('SonarQube') {
-                                           sh "${scannerHome}/bin/sonar-scanner"
-                                       }
-                                   }
-                     }
-                 }
+        stage('SonarQube Analysis') {
+                   steps {
+                       script {
+                           def scannerHome = tool name: 'SonarQube', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+                           def sonarScannerCmd = "${scannerHome}\\bin\\sonar-scanner.bat"
+
+                           withSonarQubeEnv('SonarQube') {
+                               bat "${sonarScannerCmd}"
+                           }
+                       }
+                   }
+               }
     }
 }
